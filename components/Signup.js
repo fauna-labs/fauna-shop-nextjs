@@ -1,7 +1,6 @@
-// components/Signup.js
-
 import { useState, useEffect } from 'react'
-import { useMutation, gql } from "@apollo/client";
+import { useMutation, gql } from '@apollo/client'
+import Cookie from 'js-cookie'
 
 const SIGN_UP = gql`
   mutation OwnerSignUp($email: String!, $name: String!, $password: String! ) {
@@ -41,6 +40,7 @@ export default function Signup() {
 
   const doSignup = e => {
     e.preventDefault(); 
+    Cookie.remove('fauna-session')
     signupUserFunc({
       variables: {
           ...state,
@@ -52,46 +52,46 @@ export default function Signup() {
   if (error) return 'Something went wrong...'
 
   return (
-    <div>
+    <div uk-grid>
       <div>
         <div className="uk-card uk-card-default uk-card-body">
           <h3 className="uk-card-title">Sign up</h3>
-            <form onSubmit={doSignup}>
-              <div className="uk-margin">
-                <input 
-                  className="uk-input" 
-                  type="text"
-                  placeholder="Username" 
-                  name="name" 
-                  onChange={handleChange} 
-                  value={state.name}
-                  autoComplete="off"
-                />
-              </div>
-              <div className="uk-margin">
-                <input 
-                  className="uk-input" 
-                  type="text" 
-                  placeholder="Email" 
-                  name="email"
-                  onChange={handleChange}
-                  value={state.email}
-                />
-              </div>
-              <div className="uk-margin">
-                <input 
-                  className="uk-input" 
-                  type="password" 
-                  placeholder="Password" 
-                  name="password"
-                  onChange={handleChange}
-                  value={state.password}
-                />
-              </div>
+          <form onSubmit={doSignup}>
+            <div className="uk-margin">
+              <input 
+                className="uk-input" 
+                type="text"
+                placeholder="Username" 
+                name="name" 
+                onChange={handleChange} 
+                value={state.name}
+                autoComplete="off"
+              />
+            </div>
+            <div className="uk-margin">
+              <input 
+                className="uk-input" 
+                type="text" 
+                placeholder="Email" 
+                name="email"
+                onChange={handleChange}
+                value={state.email}
+              />
+            </div>
+            <div className="uk-margin">
+              <input 
+                className="uk-input" 
+                type="password" 
+                placeholder="Password" 
+                name="password"
+                onChange={handleChange}
+                value={state.password}
+              />
+            </div>
               <div className="uk-margin">
                 <input className="uk-input" type="submit" />
               </div>
-            </form>
+          </form>
         </div>
       </div>
     </div>

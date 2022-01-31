@@ -1,16 +1,17 @@
+// apollo-client.js
+
 import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+import Cookie from 'js-cookie';
 
 const httpLink = createHttpLink({
-  // Uncomment the appropriate line according to the
-  // region group where you created your database.
-  uri: 'https://graphql.us.fauna.com/graphql',
-  // uri: 'https://graphql.eu.fauna.com/graphql',
-  // uri: 'https://graphql.us.fauna.com/graphql',
+    uri: 'https://graphql.us.fauna.com/graphql',
 });
 
 const authLink = setContext((_, { headers }) => {
-  const token = process.env.NEXT_PUBLIC_FAUNA_SECRET
+  // get the authentication token from local storage if it exists
+  const cookies = Cookie.get('fauna-session');
+  const token = cookies ? JSON.parse(cookies).secret : process.env.NEXT_PUBLIC_FAUNA_SECRET
   // return the headers to the context so httpLink can read them
   return {
     headers: {
