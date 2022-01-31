@@ -13,4 +13,3 @@ When you created your database, you specified a Region Group.  Connections to th
 [fauna]: https://www.fauna.com/
 [fauna-labs]: https://github.com/fauna-labs
 [fauna-organization]: https://github.com/fauna
-
