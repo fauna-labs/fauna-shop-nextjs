@@ -1,4 +1,5 @@
-// components/Dashboard.js
+// Copyright Fauna, Inc.
+// SPDX-License-Identifier: MIT-0
 
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'

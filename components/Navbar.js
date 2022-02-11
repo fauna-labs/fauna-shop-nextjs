@@ -1,4 +1,5 @@
-// components/Navbar.js
+// Copyright Fauna, Inc.
+// SPDX-License-Identifier: MIT-0
 
 import { useRouter } from 'next/router'
 import Link from 'next/link'

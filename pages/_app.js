@@ -1,4 +1,8 @@
 /* eslint-disable @next/next/no-sync-scripts */
+// Copyright Fauna, Inc.
+// SPDX-License-Identifier: MIT-0
+
+
 import Head from 'next/head';
 import { ApolloProvider } from '@apollo/client';
 import client from '../apollo-client';

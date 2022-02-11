@@ -1,4 +1,5 @@
-// components/Login.js
+// Copyright Fauna, Inc.
+// SPDX-License-Identifier: MIT-0
 
 import { useState, useEffect } from 'react'
 import { useMutation, gql } from '@apollo/client'
