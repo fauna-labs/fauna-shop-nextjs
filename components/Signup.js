@@ -56,7 +56,7 @@ export default function Signup() {
   if (error) return 'Something went wrong...'
 
   return (
-    <div uk-grid>
+    <div uk-grid="true" style={{ display: 'flex', justifyContent: 'center', transform: 'translateY(20%)' }}>
       <div>
         <div className="uk-card uk-card-default uk-card-body">
           <h3 className="uk-card-title">Sign up</h3>

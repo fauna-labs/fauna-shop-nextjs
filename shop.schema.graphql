@@ -1,0 +1,14 @@
+type Invoice {
+  shopId: ID!
+  amount: Float!
+  payment: Payment!
+  customerNo: String!
+  createdAt: Date!
+}
+
+enum Payment {
+  CreditCard,
+  DebitCard,
+  Paypal,
+  Bitcoin
+}

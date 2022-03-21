@@ -58,7 +58,7 @@ export default function Login() {
   if (loading) return 'Submitting...';
 
     return (
-      <div uk-grid="true">
+      <div uk-grid="true" style={{ display: 'flex', justifyContent: 'center', transform: 'translateY(20%)' }}>
         <div>
           <div className="uk-card uk-card-default uk-card-body">
             <h3 className="uk-card-title">Login</h3>
