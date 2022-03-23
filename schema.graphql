@@ -11,7 +11,7 @@ type Store {
   paymentMethods: [String]
   categories: [String]
   owner: Owner!
-  bankingInfo: String
+  isActive: Boolean
 }
 
 type Query {

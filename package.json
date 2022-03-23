@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.5.8",
+    "faunadb": "^4.5.2",
     "graphql": "^16.3.0",
     "js-cookie": "^3.0.1",
     "next": "12.0.9",

@@ -17,6 +17,7 @@ const UPDATE_STORE = gql`
 			email
 			paymentMethods
 			categories
+			isActive
 			owner {
 				_id
 				email
@@ -33,6 +34,7 @@ const GET_CURRENT_STORE = gql`
 			email
 			categories
 			paymentMethods
+			isActive
 			owner {
 				_id
 			}
@@ -115,6 +117,25 @@ export default function StoreEditForm() {
 		}).catch(e => console.log(e));
 	}
 
+	const activateCurrentStore = async () => {
+		const response = await fetch(`/api/activate-shop?storeId=${id}`)
+		const data = await response.json()
+		if (data.key) {
+			updateStore({
+				variables: {
+					id,
+					input: {
+						name: state.name,
+						email: state.email,
+						isActive: true
+					}
+				}
+			}).catch(e => console.log(e));
+			alert('Store Activated')
+			router.push('/')
+		}
+	}
+
     return (
 			<div className="uk-container uk-background-muted" style={{ marginTop: '20px', padding: '20px' }}>
 				<form onSubmit={submit}>
@@ -166,6 +187,7 @@ export default function StoreEditForm() {
 						<input className="uk-input" type="submit" />
 					</div>
 				</form>
+				<button className="uk-button uk-button-primary" disabled={state.isActive} onClick={activateCurrentStore}>Activate Shop</button>
 			</div>
     );
 }

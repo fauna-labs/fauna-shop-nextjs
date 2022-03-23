@@ -70,7 +70,7 @@ export default function Dashboard() {
                   <li key={store._id}>
                     <div className="container">
                       <div>{store.name}</div>
-                      <p uk-margin>
+                      <p >
                         <button 
                           className="uk-button uk-button-secondary uk-button-small" 
                           onClick={() => {
