@@ -6,6 +6,12 @@ type Invoice {
   createdAt: Date!
 }
 
+type Product {
+  name: String!
+  price: Float!
+  description: String!
+}
+
 enum Payment {
   CreditCard,
   DebitCard,

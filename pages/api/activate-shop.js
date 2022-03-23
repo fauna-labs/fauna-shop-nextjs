@@ -18,6 +18,9 @@ export default async function handler(req, res) {
       q.CreateKey({
         database: q.Database(storeId),
         role: 'server',
+        data: {
+          name: `Store-Server-Key-${storeId}`,
+        },
       })
     )
     console.log(ret)
