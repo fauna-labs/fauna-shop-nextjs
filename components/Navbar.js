@@ -4,9 +4,12 @@
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import Cookie from 'js-cookie'
+import { useEffect } from 'react/cjs/react.production.min';
 
 export default function Navbar() {
   const router = useRouter()
+  const cookies = Cookie.get('fauna-session') ? JSON.parse(Cookie.get('fauna-session')) : null;
+
   const logOut = () => {
       Cookie.remove('fauna-session')
       router.push('/login')
@@ -27,9 +30,17 @@ export default function Navbar() {
             </Link>
           </li>
           <li >
-            <a onClick={logOut} className="uk-button uk-button-danger" style={{ color: 'white'}}>
-              Logout
-            </a>
+            {
+              cookies && cookies.email ? (
+                <a onClick={logOut} className="uk-button uk-button-danger" style={{ color: 'white'}}>
+                  Logout
+                </a>
+              ) : (
+                <a onClick={() => router.push('/login')} className="uk-button uk-button-danger" style={{ color: 'white'}}>
+                  Login
+                </a>
+              )
+            }
           </li>
         </ul>
       </div>

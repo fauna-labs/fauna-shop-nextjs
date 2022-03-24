@@ -29,18 +29,15 @@ export default function Dashboard() {
   const [getCurrentUser, { data, error, loading }] = useLazyQuery(FindOwnerByEmail);
   const cookies = Cookie.get('fauna-session');
 
-  useEffect(() => {
-    if(!cookies) {
-      router.push('/login')
-    } 
-    const current_user_email = JSON.parse(cookies).email;
-		console.log('Find Email', JSON.parse(cookies));
-    getCurrentUser({
-      variables: {
-        email: current_user_email
-      }
-    })
-  }, [cookies])
+  // useEffect(() => {
+  //   const current_user_email = JSON.parse(cookies).email;
+	// 	console.log('Find Email', JSON.parse(cookies));
+  //   // getCurrentUser({
+  //   //   variables: {
+  //   //     email: current_user_email
+  //   //   }
+  //   // })
+  // }, [cookies])
 
   if(loading) {
     return <div>Loading...</div>
