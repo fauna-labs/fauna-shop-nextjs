@@ -9,7 +9,7 @@ export default function ShopList({ shops }) {
         <div key={shop._id}>
           <div className="uk-card uk-card-hover uk-card-body">
             <h3 className="uk-card-title">{shop.name}</h3>
-            <a className="uk-button uk-button-primary" href={`/store/${shop._id}`} target="_blank" rel="noreferrer">Visit</a>
+            <a className="uk-button uk-button-primary" href={`/store/${shop._id}?publicKey=${shop.publicKey}`} target="_blank" rel="noreferrer">Visit</a>
           </div>
         </div> 
       ))

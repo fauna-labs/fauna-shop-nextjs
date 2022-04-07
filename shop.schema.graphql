@@ -10,6 +10,7 @@ type Product {
   name: String!
   price: Float!
   description: String!
+  image: String
 }
 
 enum Payment {
@@ -17,4 +18,8 @@ enum Payment {
   DebitCard,
   Paypal,
   Bitcoin
+}
+
+type Query {
+  allProducts: [Product]
 }

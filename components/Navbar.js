@@ -4,7 +4,6 @@
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import Cookie from 'js-cookie'
-import { useEffect } from 'react/cjs/react.production.min';
 
 export default function Navbar() {
   const router = useRouter()

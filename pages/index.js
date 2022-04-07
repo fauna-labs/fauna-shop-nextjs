@@ -22,8 +22,6 @@ export default function Home() {
 
   const { data, error, loading } = useQuery(AllShops);
 
-  console.log('--->', data?.allShops?.data);
-
   if (loading) { 
     return <div>loading...</div>
   }
