@@ -4,7 +4,10 @@
 
 import Head from 'next/head'
 import Navbar from './Navbar'
+import { useRouter } from 'next/router'
+
 export default function Layout({ children }) {
+  const router = useRouter()
   return (
     <>
       <Head>
@@ -12,7 +15,9 @@ export default function Layout({ children }) {
         <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.6/dist/js/uikit.min.js" />
         <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.6/dist/js/uikit-icons.min.js" />
       </Head>
-      <Navbar />
+      {
+        router.route === '/store/[id]' ? null : <Navbar />
+      }
       {children}
     </>
   )

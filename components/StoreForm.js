@@ -62,7 +62,9 @@ export default function StoreForm() {
 	const submit = e => {
 		e.preventDefault()
 		const cookies = Cookie.get('fauna-session')
-		console.log('--->', cookies);
+		if(!cookies) { 
+			return alert('You must be logged in to create a store')
+		}
 		createNewStore({
 			variables: {
 				...state,
