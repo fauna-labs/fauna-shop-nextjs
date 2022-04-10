@@ -1,3 +1,6 @@
+// Copyright Fauna, Inc.
+// SPDX-License-Identifier: MIT-0
+
 export default function Products({products}) {
   const palceHolder = 'https://images.unsplash.com/photo-1636390785299-b4df455163dd';
   return (

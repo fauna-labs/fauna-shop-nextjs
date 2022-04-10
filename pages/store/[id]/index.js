@@ -1,3 +1,6 @@
+// Copyright Fauna, Inc.
+// SPDX-License-Identifier: MIT-0
+
 import { useEffect } from 'react'
 import { useLazyQuery, gql } from '@apollo/client'
 import { useRouter } from 'next/router'
