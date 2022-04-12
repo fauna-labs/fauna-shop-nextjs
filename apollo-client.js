@@ -4,7 +4,7 @@ import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import Cookie from 'js-cookie';
 
-const httpLink = createHttpLink({
+export const httpLink = createHttpLink({
     uri: 'https://graphql.us.fauna.com/graphql',
 });
 
@@ -20,6 +20,13 @@ const authLink = setContext((_, { headers }) => {
     }
   };
 });
+
+export const setCustomAuthToken = (token) => setContext((_, { headers }) => ({
+  headers: {
+    ...headers,
+    authorization: `Bearer ${token}`
+  }
+}));
 
 const client = new ApolloClient({
     link: authLink.concat(httpLink),
